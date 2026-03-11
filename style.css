@@ -1,0 +1,1135 @@
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Playfair Display',serif;
+background:#F8F5F2;
+color:#1C1C1C;
+
+overflow:hidden;   /* bloquea toda la página */
+height:100vh;
+}
+
+/* =========================
+TITULOS
+========================= */
+
+h1,h3{
+font-family:'Playfair Display',serif;
+}
+
+h2{
+font-size:34px;
+letter-spacing:.5px;
+margin-bottom:12px;
+}
+
+/* =========================
+SOBRE
+========================= */
+
+#envelope{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:#F8F5F2;
+
+z-index:9999;
+
+}
+
+/* contenedor */
+
+.envelope-container{
+
+position:relative;
+
+width:520px;
+max-width:90%;
+
+}
+
+/* imagen del sobre */
+
+.envelope-img{
+
+width:100%;
+display:block;
+
+transition:opacity 0.6s ease;
+
+}
+
+/* sello */
+
+.seal{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:85px;
+height:85px;
+
+cursor:pointer;
+
+z-index:5;
+
+}
+/* SOBRE BASE */
+
+.envelope{
+
+position:relative;
+
+width:520px;
+height:320px;
+
+/*background:#e9e5df;*/
+background:#820000;
+border-radius:12px;
+
+box-shadow:
+0 30px 60px rgba(0,0,0,0.2);
+
+overflow:hidden;
+
+}
+
+/* SOLAPA */
+
+.envelope::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+/*background:#dcd6cc;*/
+background:#4d0000;
+
+clip-path:polygon(0 0, 50% 55%, 100% 0);
+
+transform-origin:top;
+
+transition:transform 2.2s cubic-bezier(.22,.61,.36,1);
+
+z-index:3;
+
+}
+
+/* CARTA */
+
+.letter{
+
+position:absolute;
+
+top:90px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:85%;
+
+padding:40px;
+
+border-radius:10px;
+
+background:linear-gradient(
+180deg,
+#f3efe9 0%,
+#e8e3db 100%
+);
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+
+z-index:1;
+
+}
+
+.letter h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+/* SELLO */
+
+.seal{
+
+position:absolute;
+
+top:135px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:85px;
+height:85px;
+
+cursor:pointer;
+
+z-index:6;
+
+transition:
+transform .4s ease,
+opacity .6s ease;
+
+}
+
+.seal img{
+width:100%;
+height:100%;
+object-fit:contain;
+
+filter:
+drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+}
+
+.seal:hover{
+transform:translateX(-50%) scale(1.08);
+}
+
+/* ABRIR SOBRE */
+
+.open .envelope::before{
+transform:rotateX(180deg);
+}
+
+.open .seal{
+opacity:0;
+transform:translateX(-50%) scale(.4) rotate(20deg);
+}
+
+/* =========================
+MUSICA
+========================= */
+
+#musicBtn{
+
+position:fixed;
+
+top:20px;
+right:20px;
+
+border:none;
+
+background:#C6A769;
+
+padding:14px;
+
+border-radius:50%;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+z-index:2000;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:url("img/hero.jpg") center/cover no-repeat;
+
+text-align:center;
+
+}
+
+/* TARJETA */
+
+.invitation-card{
+
+background:rgb(255, 255, 255);   /* transparencia */
+
+backdrop-filter:blur(10px);          /* efecto vidrio */
+-webkit-backdrop-filter:blur(10px);
+
+padding:60px 70px;
+
+border-radius:18px;
+
+color:#1C1C1C;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+
+}
+
+/* TEXTO SUPERIOR */
+
+.invite-text{
+
+font-family:'Montserrat',sans-serif;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+color:#444;
+
+}
+
+/* NOMBRES */
+
+.names{
+
+font-family:'Great Vibes',cursive;
+
+font-size:70px;
+
+line-height:1.1;
+
+color:#000;
+
+margin-bottom:20px;
+
+}
+
+/* IGLESIA */
+
+.church{
+
+font-family:'Playfair Display',serif;
+
+font-size:16px;
+
+letter-spacing:3px;
+
+margin-bottom:25px;
+
+}
+
+/* FECHA */
+
+.date-box{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:20px;
+
+border-top:1px solid #999;
+
+border-bottom:1px solid #999;
+
+padding:10px 0;
+
+margin-bottom:10px;
+
+}
+
+/* DIA */
+
+.day{
+
+font-family:'Montserrat',sans-serif;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+}
+
+/* NUMERO GRANDE */
+
+.number{
+
+font-family:'Playfair Display',serif;
+
+font-size:50px;
+
+font-weight:600;
+
+}
+
+/* HORA */
+
+.time{
+
+font-family:'Montserrat',sans-serif;
+
+font-size:14px;
+
+letter-spacing:2px;
+
+}
+
+/* FECHA COMPLETA */
+
+.full-date{
+
+font-family:'Montserrat',sans-serif;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#555;
+
+}
+/* =========================
+SECCIONES
+========================= */
+
+section{
+
+padding:80px 20px;
+
+text-align:center;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+/* =========================
+REVEAL SCROLL
+========================= */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(80px) scale(.95);
+
+transition:
+opacity 1.2s ease,
+transform 1.2s cubic-bezier(.22,.61,.36,1);
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+/* =========================
+VIDEO HISTORIA
+========================= */
+
+.story-video{
+
+margin-top:40px;
+
+display:flex;
+justify-content:center;
+
+}
+
+.story-video video{
+
+width:100%;
+max-width:420px;
+
+aspect-ratio:16/9;
+
+object-fit:cover;
+
+border-radius:16px;
+
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+
+}
+
+/* =========================
+GALERIA
+========================= */
+
+.slider{
+position:relative;
+max-width:700px;
+margin:auto;
+}
+
+.slides{
+
+position:relative;
+
+height:450px;
+
+overflow:hidden;
+
+border-radius:12px;
+
+}
+
+.slide{
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+
+transform:scale(1.05);
+
+transition:
+opacity 1s ease,
+transform 2s ease;
+
+}
+
+.slide.active{
+
+opacity:1;
+
+transform:scale(1);
+
+z-index:2;
+
+}
+
+/* BOTONES */
+
+.prev,
+.next{
+
+position:absolute;
+
+top:50%;
+
+transform:translateY(-50%);
+
+background:rgba(0,0,0,0.5);
+
+color:white;
+
+border:none;
+
+font-size:28px;
+
+padding:10px 16px;
+
+cursor:pointer;
+
+border-radius:50%;
+
+z-index:10;
+
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+/* =========================
+DRESS CODE
+========================= */
+
+.dress-grid{
+
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+flex-wrap:wrap;
+
+}
+
+.dress-card{
+
+background:white;
+padding:30px;
+
+border-radius:14px;
+
+box-shadow:0 15px 30px rgba(0,0,0,0.1);
+
+width:220px;
+
+transition:transform .3s;
+
+}
+
+.dress-card:hover{
+transform:translateY(-6px);
+}
+
+.dress-icon{
+width:60px;
+margin-bottom:10px;
+}
+
+/* COLORES */
+
+.colors{
+
+display:flex;
+justify-content:center;
+gap:15px;
+margin-top:10px;
+
+}
+
+.colors span{
+
+width:35px;
+height:35px;
+
+border-radius:50%;
+
+display:inline-block;
+
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+
+}
+
+/* =========================
+MESA DE REGALOS
+========================= */
+
+.gifts-grid{
+
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+flex-wrap:wrap;
+
+}
+
+.gift-card{
+
+background:white;
+padding:25px;
+
+border-radius:14px;
+
+width:160px;
+
+text-decoration:none;
+
+color:#333;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
+transition:transform .3s;
+
+}
+
+.gift-card:hover{
+transform:translateY(-6px);
+}
+
+.gift-card img{
+width:60px;
+margin-bottom:10px;
+}
+
+.gift-icon{
+width:90px;
+margin-bottom:20px;
+}
+
+/* =========================
+TARJETAS FLORALES
+========================= */
+
+.card-section{
+
+position:relative;
+
+padding:120px 20px;
+
+margin-top:80px;
+
+border-radius:20px;
+
+background-image:url("img/fondoverdeflorblanca.jpeg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.12);
+
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+
+}
+
+/* FLOR IZQUIERDA 
+
+.card-section::before{
+
+content:"";
+
+position:absolute;
+
+top:-5px;
+left:-5px;
+
+width:240px;
+height:240px;
+
+background:url("img/fondoizquierda.png") no-repeat;
+
+background-size:contain;
+
+background-position:top left;
+
+pointer-events:none;
+
+}
+
+FLOR DERECHA 
+
+.card-section::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-5px;
+right:-5px;
+
+width:240px;
+height:240px;
+
+background:url("img/fondoderecha.png") no-repeat;
+
+background-size:contain;
+
+background-position:bottom right;
+
+pointer-events:none;
+
+}*/
+
+/* CONTENIDO SOBRE FLORES */
+
+.card-section > *{
+
+position:relative;
+z-index:2;
+
+}
+
+/* tarjeta blanca */
+
+.card-section .content-box{
+
+background:rgba(255,255,255,0.35);
+
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+padding:60px 70px;
+
+border-radius:20px;
+
+max-width:750px;
+
+border:1px solid rgba(255,255,255,0.4);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,0.18),
+inset 0 1px 0 rgba(255,255,255,0.6);
+
+}
+
+/* =========================
+FORMULARIO
+========================= */
+
+.rsvp input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border-radius:8px;
+
+
+background:rgba(255,255,255,0.6);
+
+border:1px solid rgba(0,0,0,0.1);
+
+backdrop-filter:blur(6px);
+
+}
+
+.rsvp button{
+
+margin-top:10px;
+
+padding:12px 20px;
+
+border:none;
+
+background:#C6A769;
+
+color:white;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero-text{
+padding:40px;
+}
+
+.envelope{
+width:90%;
+}
+
+.slides{
+height:300px;
+}
+
+.card-section{
+padding:80px 30px;
+}
+
+}
+/* =========================
+IMAGEN EVENTO
+========================= */
+
+.dress-img{
+
+width:100%;
+max-width:420px;
+
+margin-top:30px;
+
+border-radius:12px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+/* =========================
+AJUSTE SOLO PARA GALERIA
+========================= */
+/* =========================
+GALERIA
+========================= */
+
+.gallery .content-box{
+
+max-width:520px;
+
+width:100%;
+
+padding:40px 40px;
+
+margin:auto;
+
+}
+
+.gallery .slider{
+
+width:100%;
+max-width:420px;
+
+margin:auto;
+
+}
+
+.gallery .slides{
+
+height:280px;
+
+border-radius:16px;
+
+}
+
+.gallery .slide{
+
+object-fit:cover;
+
+}
+/* =========================
+INVITACION SUPERIOR
+========================= */
+
+.hero{
+
+min-height:100vh;
+
+background:url("img/hero.jpg") center/1200px 830px no-repeat;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+}
+
+/* tarjeta */
+
+.invitation-card{
+
+background:transparent;
+
+padding:60px 70px;
+
+border-radius:18px;
+
+color:#1C1C1C;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+
+}
+
+/* nombres */
+
+.names{
+
+font-family:'Great Vibes', cursive;
+
+font-size:64px;
+
+font-weight:400;
+
+line-height:1.1;
+
+}
+
+.names span{
+
+display:block;
+
+font-size:40px;
+
+margin:10px 0;
+
+}
+
+/* fecha */
+
+.date{
+
+font-family:'Playfair Display', serif;
+
+margin-top:15px;
+
+font-size:20px;
+
+opacity:0.9;
+
+}
+
+/* LOGO DE INICIALES */
+
+.names-logo{
+display:flex;
+justify-content:center;
+align-items:center;
+margin:30px 0;
+}
+
+.names-logo img{
+width:220px;
+height:auto;
+background:transparent;
+filter:drop-shadow(0 12px 25px rgba(0,0,0,0.25));
+}
+
+/* =========================
+MARCO FLORAL FIJO
+========================= */
+
+.hero{
+position:relative;
+overflow:hidden;
+}
+
+/* fondo floral detrás */
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:900px;
+height:900px;
+
+background:url("img/marco_floral_transparente_full.png") no-repeat center;
+
+background-size:900px;
+
+pointer-events:none;
+
+z-index:1;
+
+}
+
+/* =========================
+TARJETA ENCIMA DEL MARCO
+========================= */
+
+.invitation-card{
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* =========================
+MONOGRAMA INICIALES
+========================= */
+
+.names-logo img{
+
+width:200px;
+
+height:auto;
+
+image-rendering:auto;
+
+filter:
+drop-shadow(0 10px 20px rgba(0,0,0,0.25));
+
+}
+
+/* =========================
+EVITAR ESCALADO EN ZOOM
+========================= */
+
+.hero,
+.hero::before{
+
+background-attachment:scroll;
+
+}
+
+/* =========================
+CENTRADO PERFECTO
+========================= */
+
+.names-logo{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin:25px 0;
+
+}
+
+
+/* =========================
+MONOGRAMA INICIALES
+========================= */
+
+.names-logo{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+margin:30px 0;
+
+}
+
+.names-logo img{
+
+width:260px;
+max-width:100%;
+
+height:auto;
+
+filter:
+drop-shadow(0 15px 25px rgba(0,0,0,0.25));
+
+}
+.date-box{
+color:#1C1C1C;
+}
+
+.full-date{
+color:#555;
+}
+.content-box{
+
+animation:floatCard 6s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%{transform:translateY(0px);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0px);}
+
+}
