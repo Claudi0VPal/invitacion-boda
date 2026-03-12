@@ -21,12 +21,18 @@ window.open(url, "_blank")
 ========================= */
 
 const openBtn = document.getElementById("openInvite")
+const music = document.getElementById("music")
 
 if(openBtn){
 
 openBtn.onclick = () => {
 
 const envelope = document.getElementById("envelope")
+
+/* iniciar musica */
+if(music){
+music.play().catch(()=>{})
+}
 
 envelope.classList.add("open")
 
@@ -53,7 +59,6 @@ document.body.style.overflow="auto"
    MUSICA
 ========================= */
 
-const music = document.getElementById("music")
 const btn = document.getElementById("musicBtn")
 
 if(btn && music){
@@ -125,58 +130,6 @@ observer.observe(section)
 })
 
 
-/* =========================
-   GALERIA SLIDER
-========================= */
-
-let slides = document.querySelectorAll(".slide")
-
-let index = 0
-
-const next = document.querySelector(".next")
-const prev = document.querySelector(".prev")
-
-function showSlide(i){
-
-slides.forEach(slide=>{
-slide.classList.remove("active")
-})
-
-slides[i].classList.add("active")
-
-}
-
-if(next){
-
-next.onclick = () => {
-
-index++
-
-if(index >= slides.length){
-index = 0
-}
-
-showSlide(index)
-
-}
-
-}
-
-if(prev){
-
-prev.onclick = () => {
-
-index--
-
-if(index < 0){
-index = slides.length - 1
-}
-
-showSlide(index)
-
-}
-
-}
 
 
 /* =========================
@@ -230,3 +183,109 @@ document.body.style.overflow="auto";
 },1200);
 
 });
+
+/* =========================
+   GALERIA SWIPE
+========================= */
+
+const slides = document.querySelectorAll(".slide")
+const next = document.querySelector(".next")
+const prev = document.querySelector(".prev")
+
+let index = 0
+
+function showSlide(i){
+
+slides.forEach(slide => slide.classList.remove("active"))
+
+slides[i].classList.add("active")
+
+}
+
+/* botones */
+
+if(next){
+next.onclick = () => {
+
+index++
+
+if(index >= slides.length){
+index = 0
+}
+
+showSlide(index)
+
+}
+}
+
+if(prev){
+prev.onclick = () => {
+
+index--
+
+if(index < 0){
+index = slides.length - 1
+}
+
+showSlide(index)
+
+}
+}
+
+/* =========================
+   SWIPE MOVIL
+========================= */
+
+let startX = 0
+let endX = 0
+
+const slider = document.querySelector(".slides")
+
+slider.addEventListener("touchstart",(e)=>{
+
+startX = e.touches[0].clientX
+
+})
+
+slider.addEventListener("touchend",(e)=>{
+
+endX = e.changedTouches[0].clientX
+
+handleSwipe()
+
+})
+
+function handleSwipe(){
+
+let diff = startX - endX
+
+if(Math.abs(diff) > 50){
+
+if(diff > 0){
+
+/* swipe izquierda */
+
+index++
+
+if(index >= slides.length){
+index = 0
+}
+
+}else{
+
+/* swipe derecha */
+
+index--
+
+if(index < 0){
+index = slides.length - 1
+}
+
+}
+
+showSlide(index)
+
+}
+
+}
+
