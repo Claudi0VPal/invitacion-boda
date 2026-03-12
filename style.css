@@ -644,7 +644,7 @@ position:relative;
 padding:120px 20px;
 
 /* espacio real entre divisiones */
-margin:150px auto;
+margin:100px auto;
 
 border-radius:20px;
 
@@ -1124,8 +1124,8 @@ pointer-events:none;
 width:12px;
 height:12px;
 
-border-left:2px solid #C6A769;
-border-bottom:2px solid #C6A769;
+border-left:2px solid #000000;
+border-bottom:2px solid #000000;
 
 transform:rotate(-45deg);
 
@@ -1161,11 +1161,8 @@ padding:20px;
 }
 
 .card-section{
-margin:50px auto;
+margin:80px auto;
 padding:120px 20px;
 }
 
 }
-
-
-
