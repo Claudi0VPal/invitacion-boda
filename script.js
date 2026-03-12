@@ -233,13 +233,25 @@ showSlide(index)
 }
 
 /* =========================
-   SWIPE MOVIL
+GALERIA SWIPE
 ========================= */
 
-let startX = 0
-let endX = 0
-
 const slider = document.querySelector(".slides")
+
+if(slider){
+
+let startX = 0
+let currentX = 0
+let index = 0
+
+const slides = slider.children
+const totalSlides = slides.length
+
+function updateSlide(){
+
+slider.style.transform = "translateX(-" + (index * 100) + "%)"
+
+}
 
 slider.addEventListener("touchstart",(e)=>{
 
@@ -247,45 +259,35 @@ startX = e.touches[0].clientX
 
 })
 
-slider.addEventListener("touchend",(e)=>{
+slider.addEventListener("touchmove",(e)=>{
 
-endX = e.changedTouches[0].clientX
-
-handleSwipe()
+currentX = e.touches[0].clientX
 
 })
 
-function handleSwipe(){
+slider.addEventListener("touchend",()=>{
 
-let diff = startX - endX
+let diff = startX - currentX
 
 if(Math.abs(diff) > 50){
 
 if(diff > 0){
 
-/* swipe izquierda */
-
 index++
-
-if(index >= slides.length){
-index = 0
-}
 
 }else{
 
-/* swipe derecha */
-
 index--
 
-if(index < 0){
-index = slides.length - 1
 }
 
-}
+if(index < 0) index = 0
+if(index >= totalSlides) index = totalSlides - 1
 
-showSlide(index)
-
-}
+updateSlide()
 
 }
 
+})
+
+}
