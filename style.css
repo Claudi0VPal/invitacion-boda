@@ -13,8 +13,8 @@ font-family:'Playfair Display',serif;
 background:#F8F5F2;
 color:#1C1C1C;
 
-overflow:hidden;   /* bloquea toda la página */
-height:100vh;
+overflow-x:hidden;
+
 }
 
 /* =========================
@@ -264,6 +264,7 @@ HERO
 .hero{
 
 min-height:100vh;
+min-height:100svh;
 
 display:flex;
 align-items:center;
@@ -272,9 +273,14 @@ justify-content:center;
 background:url("img/hero.jpg") center/cover no-repeat;
 
 text-align:center;
-
+padding: 20px,20px,40px;
 }
+/* para la flecha de scroll */
 
+.hero,
+.card-section{
+position:relative;
+}
 /* TARJETA */
 
 .invitation-card{
@@ -480,90 +486,38 @@ box-shadow:0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* =========================
-GALERIA
+GALERIA MODERNA
 ========================= */
-
 .slider{
-position:relative;
-max-width:700px;
+
+width:100%;
+max-width:420px;
+
 margin:auto;
+
+overflow:hidden;
+
+border-radius:16px;
+
 }
 
 .slides{
 
-position:relative;
+display:flex;
 
-height:450px;
-
-overflow:hidden;
-
-border-radius:12px;
+transition:transform 0.5s ease;
 
 }
 
-.slide{
-
-position:absolute;
-
-top:0;
-left:0;
+.slides img{
 
 width:100%;
-height:100%;
+
+flex-shrink:0;
 
 object-fit:cover;
 
-opacity:0;
-
-transform:scale(1.05);
-
-transition:
-opacity 1s ease,
-transform 2s ease;
-
 }
-
-.slide.active{
-
-opacity:1;
-
-transform:scale(1);
-
-z-index:2;
-
-}
-
-/* BOTONES */
-
-.prev,
-.next{
-
-position:absolute;
-
-top:50%;
-
-transform:translateY(-50%);
-
-background:rgba(0,0,0,0.5);
-
-color:white;
-
-border:none;
-
-font-size:28px;
-
-padding:10px 16px;
-
-cursor:pointer;
-
-border-radius:50%;
-
-z-index:10;
-
-}
-
-.prev{ left:10px; }
-.next{ right:10px; }
 
 /* =========================
 DRESS CODE
@@ -684,7 +638,7 @@ position:relative;
 
 padding:120px 20px;
 
-margin-top:80px;
+margin-top:40px auto;
 
 border-radius:20px;
 
@@ -1131,5 +1085,78 @@ animation:floatCard 6s ease-in-out infinite;
 0%{transform:translateY(0px);}
 50%{transform:translateY(-6px);}
 100%{transform:translateY(0px);}
+
+}
+/* =========================
+   FLECHA SCROLL
+========================= */
+
+.scroll-indicator{
+
+position:absolute;
+
+bottom:25px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:30px;
+height:50px;
+
+display:flex;
+justify-content:center;
+align-items:flex-start;
+
+pointer-events:none;
+
+}
+
+/* flecha */
+
+.scroll-indicator span{
+
+width:12px;
+height:12px;
+
+border-left:2px solid #C6A769;
+border-bottom:2px solid #C6A769;
+
+transform:rotate(-45deg);
+
+animation:scrollDown 1.8s infinite;
+
+}
+
+/* animación */
+
+@keyframes scrollDown{
+
+0%{
+opacity:0;
+transform:rotate(-45deg) translate(0,0);
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+transform:rotate(-45deg) translate(-8px,8px);
+}
+
+}
+
+@media (max-width:768px){
+
+.hero{
+min-height:85svh;
+padding:20px;
+}
+
+.card-section{
+margin:30px auto;
+padding:60px 20px;
+}
 
 }
