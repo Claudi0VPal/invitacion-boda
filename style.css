@@ -875,7 +875,7 @@ INVITACION SUPERIOR
 .hero{
 
 min-height:100vh;
-
+min-height:100svh;
 background:url("img/hero.jpg") center/1200px 830px no-repeat;
 
 display:flex;
@@ -1166,5 +1166,6 @@ padding:120px 20px;
 }
 
 }
+
 
 
