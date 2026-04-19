@@ -475,9 +475,9 @@ justify-content:center;
 .story-video video{
 
 width:100%;
-max-width:620px;
+max-width:200px;
 
-aspect-ratio:16/9;
+aspect-ratio:9/16;
 
 object-fit:cover;
 
