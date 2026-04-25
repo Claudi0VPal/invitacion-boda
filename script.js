@@ -148,13 +148,16 @@ const nombre = document.getElementById("nombre").value
 const personas = document.getElementById("personas").value
 
 const mensaje =
-`Confirmación de asistencia:
+`¡Hola! 
+Confirmo mi asistencia 
+¡Listo(a) para celebrar su gran día!:
 Nombre: ${nombre}
 Personas: ${personas}`
 
 window.open(
-`https://wa.me/521XXXXXXXXXX?text=${encodeURIComponent(mensaje)}`
+`https://wa.me/2481834957?text=${encodeURIComponent(mensaje)}`
 )
+
 
 /* ABRIR GOOGLE CALENDAR */
 
